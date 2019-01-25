@@ -8,7 +8,7 @@ class Person {
         this.gender = personAttr.gender;
     }
     speak() {
-        return `Hello my name is ${this.name}, I am from ${this.location}.`;
+        console.log(`Hello my name is ${this.name}, I am from ${this.location}.`);
     }
 }
 
@@ -21,11 +21,11 @@ class Instructor extends Person {
         this.catchPhrase = instructorAttr.catchPhrase;
 
     }
-    demo() {
-        return `Today we are learning about ${subject}`;
+    demo(subject) {
+        return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-        return `${student.name} receives a perfect score on ${this.subject}`;
+        return `${student.name} receives a perfect score on ${subject}.`;
     }
 }
 
@@ -42,10 +42,10 @@ class Student extends Person {
         }
     }
     PRAssignment(subject) {
-        return `${this.name} has submitted a PR for ${subject}`;
+        return `${this.name} has submitted a PR for ${subject}.`;
     }
     sprintChallenge(subject) {
-        return `${this.name} has begun sprint challenge on ${subject}`;
+        return `${this.name} has begun sprint challenge on ${subject}.`;
     }
 }
 
@@ -56,10 +56,10 @@ class ProjectManager extends Instructor {
         this.favInstructor = pmAttr.favInstructor;
     }
     standUp(channel) {
-        return `${this.name} announces to ${channel}, @channel standy times!`;
+        return `${this.name} announces to ${channel}, @channel standby times!`;
     }
     debugsCode(student, subject) {
-        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${subject}.`;
     }
 }
 
@@ -84,7 +84,7 @@ const yogi = new Student({
     catchPhrase: `I'm smarter than the av-er-age bear!`,
     previousBackground: 'sleep',
     className: 'FSWPT12',
-    favSubjects: 'lunch'
+    favSubjects: ['lunch', 'naps', 'lunch again']
 });
 
 const olive = new ProjectManager({
@@ -98,3 +98,22 @@ const olive = new ProjectManager({
     gradClassName: 'WEB2',
     favInstructor: 'George'
 });
+console.log(''); //space to break up console log to read easier
+
+console.log(george);
+george.speak();
+console.log(george.name);
+console.log(george.age);
+console.log(george.demo("HTML and CSS"));
+
+console.log(yogi);
+yogi.speak();
+console.log(yogi.listsSubjects(yogi.favSubjects));
+console.log(yogi.PRAssignment("Advanced CSS"));
+console.log(yogi.sprintChallenge("CSS 2"));
+
+console.log(olive);
+olive.speak();
+console.log(olive.grade(yogi, 'HTML'));
+console.log(olive.standUp("FSWPT5"));
+console.log(olive.debugsCode(yogi, "HTML/CSS Project"));
