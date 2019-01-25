@@ -12,7 +12,6 @@ class Person {
     }
 }
 
-
 class Instructor extends Person {
     constructor(instructorAttr) {
         super(instructorAttr);
@@ -90,7 +89,7 @@ const yogi = new Student({
 const olive = new ProjectManager({
     name: 'Olive Oyl',
     location: 'Sweethaven',
-    age: 3,
+    age: 33,
     gender: 'female',
     favLanguage: 'All',
     specialty: 'Redux',
@@ -98,6 +97,7 @@ const olive = new ProjectManager({
     gradClassName: 'WEB2',
     favInstructor: 'George'
 });
+
 console.log(''); //space to break up console log to read easier
 
 console.log(george);
