@@ -1,11 +1,11 @@
 // CODE here for your Lambda Classes
-  
+
 class Person {
-    constructor(baseClass) {
-        this.name = baseClass.name;
-        this.age = baseClass.age;
-        this.location = baseClass.location;
-        this.gender = baseClass.gender;
+    constructor(personAttr) {
+        this.name = personAttr.name;
+        this.age = personAttr.age;
+        this.location = personAttr.location;
+        this.gender = personAttr.gender;
     }
     speak() {
         return `Hello my name is ${this.name}, I am from ${this.location}.`;
@@ -14,64 +14,57 @@ class Person {
 
 
 class Instructor extends Person {
-    constructor(teacher) {
-        super(teacher)
-        this.specialty = teacher.specialty;
-        this.favLanguage = teacher.favLanguage;
-        this.catchPhrase = teacher.catchPhrase;
+    constructor(instructorAttr) {
+        super(instructorAttr);
+        this.specialty = instructorAttr.specialty;
+        this.favLanguage = instructorAttr.favLanguage;
+        this.catchPhrase = instructorAttr.catchPhrase;
 
     }
     demo() {
-        return `Today we are learning about ${this.subject}`;
+        return `Today we are learning about ${subject}`;
     }
-    grade() {
+    grade(student, subject) {
         return `${student.name} receives a perfect score on ${this.subject}`;
     }
 }
 
 class Student extends Person {
-    constructor(learner) {
-        super(learner)
-        this.previousBackground = learner.previousBackground;
-        this.className = learner.className;
-        this.favSubjects = learner.favSubjects;
+    constructor(studentAttr) {
+        super(studentAttr);
+        this.previousBackground = studentAttr.previousBackground;
+        this.className = studentAttr.className;
+        this.favSubjects = studentAttr.favSubjects;
     }
-    listsSubjects() {
-        return `Here are their favorite subjects: ${this.favSubjects}`;
+    listsSubjects(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
     }
-    PRAssignment() {
-        return `${student.name} has submitted a PR for ${this.subject}`;
+    PRAssignment(subject) {
+        return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge() {
-        return `${student.name} has begun sprint challenge on ${this.subject}`;
+    sprintChallenge(subject) {
+        return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
 
 class ProjectManager extends Instructor {
-    constructor(PM) {
-        super(PM) 
-        this.gradeClassName = PM.gradeClassName;
-        this.favInstructor = PM.favInstructor;
+    constructor(pmAttr) {
+        super(pmAttr);
+        this.gradeClassName = pmAttr.gradeClassName;
+        this.favInstructor = pmAttr.favInstructor;
     }
-    standUp() {
-        return `${this.name} announces to ${this.channel}, @channel standy times!`;
+    standUp(channel) {
+        return `${this.name} announces to ${channel}, @channel standy times!`;
     }
-    debugsCode() {
-        return `${this.name} debugs ${student.name}'s code on ${this.subject}`;
+    debugsCode(student, subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 }
 
-const fred = new Instructor({
-    name: 'Fred',
-    location: 'Bedrock',
-    age: 37,
-    gender: 'male',
-    favLanguage: 'JavaScript',
-    specialty: 'Front-end',
-    catchPhrase: `Yabba Dabba Doo`
-  });
 
-  const george = new Instructor({
+const george = new Instructor({
     name: 'George',
     location: 'Orbit City',
     age: 39,
@@ -79,44 +72,29 @@ const fred = new Instructor({
     favLanguage: 'HTML/CSS',
     specialty: 'Front-end',
     catchPhrase: `Jane! Stop this crazy thing!`
-  });
+});
 
-  const yogi = new Student({
+const yogi = new Student({
     name: 'Yogi Bear',
     location: 'Yellowstone National Park',
     age: 5,
     gender: 'male',
     favLanguage: 'HTML/CSS',
     specialty: 'pic-a-nic baskets',
-    catchPhrase: `I'm smarter than the av-er-age bear!`
-  });
+    catchPhrase: `I'm smarter than the av-er-age bear!`,
+    previousBackground: 'sleep',
+    className: 'FSWPT12',
+    favSubjects: 'lunch'
+});
 
-  const george = new Instructor({
-    name: 'George',
-    location: 'Orbit City',
-    age: 39,
-    gender: 'male',
-    favLanguage: 'HTML/CSS',
-    specialty: 'Front-end',
-    catchPhrase: `Jane! Stop this crazy thing!`
-  });
-
-  const olive = new ProjectManager({
+const olive = new ProjectManager({
     name: 'Olive Oyl',
-    location: 'Orbit City',
-    age: 39,
-    gender: 'male',
-    favLanguage: 'HTML/CSS',
-    specialty: 'Front-end',
-    catchPhrase: `Jane! Stop this crazy thing!`
-  });
-
-  const george = new Instructor({
-    name: 'George',
-    location: 'Orbit City',
-    age: 39,
-    gender: 'male',
-    favLanguage: 'HTML/CSS',
-    specialty: 'Front-end',
-    catchPhrase: `Jane! Stop this crazy thing!`
-  });
+    location: 'Sweethaven',
+    age: 3,
+    gender: 'female',
+    favLanguage: 'All',
+    specialty: 'Redux',
+    catchPhrase: `Oh dear!`,
+    gradClassName: 'WEB2',
+    favInstructor: 'George'
+});
